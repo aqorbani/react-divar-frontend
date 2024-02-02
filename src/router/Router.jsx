@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { getProfile } from "src/services/user";
 
 import PageNotFound from "src/pages/404";
@@ -20,9 +20,24 @@ const Router = () => {
   return (
     <Routes>
       <Route path="" element={<HomePage />} />
-      <Route path="/auth" element={<AuthPage />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/admin" element={<AdminPage />} />
+      <Route
+        path="/auth"
+        element={data ? <Navigate to="/dashboard" /> : <AuthPage />}
+      />
+      <Route
+        path="/dashboard"
+        element={data ? <Dashboard /> : <Navigate to="/auth" />}
+      />
+      <Route
+        path="/admin"
+        element={
+          data && data.data.role === "ADMIN" ? (
+            <AdminPage />
+          ) : (
+            <Navigate to="/" />
+          )
+        }
+      />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
