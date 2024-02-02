@@ -4,6 +4,7 @@ const paths = [
   "components",
   "configs",
   "pages",
+  "layouts",
   "router",
   "services",
   "styles",
