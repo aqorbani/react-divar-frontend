@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { checkOtp } from "../../services/auth";
+import { setCookie } from "../../utils/cookie";
 
 const CheckOtpForm = ({ mobile, setStep, code, setCode }) => {
   CheckOtpForm.propTypes = {
@@ -16,7 +17,9 @@ const CheckOtpForm = ({ mobile, setStep, code, setCode }) => {
 
     const { response, error } = await checkOtp(mobile, code);
 
-    if (response) console.log(response);
+    if (response) {
+      setCookie(response.data);
+    }
     if (error) console.log(error.message);
   };
 
