@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { sendOtp } from "../../services/auth";
+import { sendOtp } from "services/auth";
 
 const SendOtpForm = ({ setStep, mobile, setMobile }) => {
   SendOtpForm.propTypes = {

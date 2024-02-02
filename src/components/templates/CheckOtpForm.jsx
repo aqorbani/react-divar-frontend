@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import { checkOtp } from "../../services/auth";
-import { setCookie } from "../../utils/cookie";
+import { checkOtp } from "services/auth";
+import { setCookie } from "utils/cookie";
 
 const CheckOtpForm = ({ mobile, setStep, code, setCode }) => {
   CheckOtpForm.propTypes = {
