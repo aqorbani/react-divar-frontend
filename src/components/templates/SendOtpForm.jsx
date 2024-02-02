@@ -21,9 +21,12 @@ const SendOtpForm = ({ setStep, mobile, setMobile }) => {
   };
 
   return (
-    <form className="w-full lg:max-w-sm" onSubmit={submitHandler}>
-      <h2>ورود به حساب کاربری</h2>
-      <p>
+    <form
+      className="w-1/3 lg:max-w-sm flex-col p-3 shadow-md rounded"
+      onSubmit={submitHandler}
+    >
+      <h2 className="text-lg font-bold">ورود به حساب کاربری</h2>
+      <p className="text-sm mt-2">
         برای استفاده از امکانات و ورود به حساب کاربری شماره موبایل خود را وارد
         نمایید ، کد تایید به این شماره ارسال خواهد شد.
       </p>
@@ -33,10 +36,15 @@ const SendOtpForm = ({ setStep, mobile, setMobile }) => {
         value={mobile}
         id="mobile"
         onChange={(e) => setMobile(e.target.value)}
-        className="w-full rounded focus:border-gray-900"
+        className="w-full rounded focus:border-gray-900 mt-6"
         placeholder="شماره موبایل"
       />
-      <button type="submit">ارسال کد تایید</button>
+      <button
+        type="submit"
+        className="mt-5 text-white bg-red-950 rounded-md p-2 text-sm"
+      >
+        ارسال کد تایید
+      </button>
     </form>
   );
 };

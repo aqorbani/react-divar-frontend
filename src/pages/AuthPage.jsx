@@ -7,7 +7,7 @@ const AuthPage = () => {
   const [mobile, setMobile] = useState("");
   const [code, setCode] = useState("");
   return (
-    <div>
+    <div className="w-full flex justify-center items-center mt-24">
       {step === 1 && (
         <SendOtpForm setStep={setStep} mobile={mobile} setMobile={setMobile} />
       )}

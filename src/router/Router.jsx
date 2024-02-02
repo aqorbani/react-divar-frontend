@@ -7,6 +7,7 @@ import AdminPage from "src/pages/AdminPage";
 import AuthPage from "src/pages/AuthPage";
 import Dashboard from "src/pages/Dashboard";
 import HomePage from "src/pages/HomePage";
+import Loader from "src/components/modules/Loader";
 
 const Router = () => {
   const { data, isLoading, error } = useQuery({
@@ -14,7 +15,7 @@ const Router = () => {
     queryFn: getProfile,
   });
 
-  if (isLoading) return <p>Loading</p>;
+  if (isLoading) return <Loader />;
 
   console.log({ data, isLoading, error });
   return (
