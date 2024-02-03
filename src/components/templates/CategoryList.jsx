@@ -3,14 +3,14 @@ import { getCategory } from "src/services/admin";
 import Loader from "../modules/Loader";
 
 const CategoryList = () => {
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, isFetching } = useQuery({
     queryKey: ["categories"],
     queryFn: getCategory,
   });
   console.log({ data, isLoading });
   return (
     <div>
-      {isLoading ? (
+      {isFetching ? (
         <Loader />
       ) : (
         data.data.map((item) => (
