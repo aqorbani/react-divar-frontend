@@ -36,20 +36,37 @@ const CheckOtpForm = ({ mobile, setStep, code, setCode }) => {
   };
 
   return (
-    <form className="w-full lg:max-w-sm" onSubmit={submitHandler}>
-      <h4>تایید شماره موبایل</h4>
-      <p>کد پیامک شده به شماره {mobile} را وارد نمایید.</p>
+    <form
+      className="w-1/3 lg:max-w-sm flex-col p-3 shadow-md rounded"
+      onSubmit={submitHandler}
+    >
+      <h2 className="text-lg font-bold">تایید شماره موبایل</h2>
+      <p className="text-sm font-extralight text-gray-400 mt-2">
+        کد پیامک شده به شماره {mobile} را وارد نمایید.
+      </p>
       <input
         name="code"
         type="text"
         value={code}
         id="code"
         onChange={(e) => setCode(e.target.value)}
-        className="w-full rounded focus:border-gray-900"
+        className="w-full rounded focus:border-gray-900 mt-6"
         placeholder="کد تایید"
       />
-      <button type="submit">تایید کد</button>
-      <button onClick={() => setStep(1)}>تغییر شماره موبایل</button>
+      <span className="flex justify-between">
+        <button
+          type="submit"
+          className="mt-5 text-white bg-red-950 rounded-md p-2 text-sm"
+        >
+          تایید کد
+        </button>
+        <button
+          className="mt-5 text-red-950 bg-white rounded-md p-2 text-sm"
+          onClick={() => setStep(1)}
+        >
+          تغییر شماره موبایل
+        </button>
+      </span>
     </form>
   );
 };

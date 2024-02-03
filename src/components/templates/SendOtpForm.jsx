@@ -26,7 +26,7 @@ const SendOtpForm = ({ setStep, mobile, setMobile }) => {
       onSubmit={submitHandler}
     >
       <h2 className="text-lg font-bold">ورود به حساب کاربری</h2>
-      <p className="text-sm mt-2">
+      <p className="text-sm font-extralight text-gray-400 mt-2">
         برای استفاده از امکانات و ورود به حساب کاربری شماره موبایل خود را وارد
         نمایید ، کد تایید به این شماره ارسال خواهد شد.
       </p>
