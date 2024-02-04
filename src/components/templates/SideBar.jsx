@@ -10,6 +10,7 @@ const SideBar = () => {
   if (isLoading) return <Loader />;
   return (
     <div className="shadow-md p-4 m2">
+      <h2>دسته بندی ها</h2>
       <ul className="p-2">
         {data?.data.map((item) => (
           <li key={item._id} className="flex p-1 mt-2">
