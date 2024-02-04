@@ -11,9 +11,12 @@ const Main = () => {
   if (isLoading) return <Loader />;
   console.log(data);
   return (
-    <div>
+    <div className="flex flex-wrap">
       {data.data.posts.map((item) => (
-        <div key={item._id}>
+        <div
+          key={item._id}
+          className="flex w-full md:w-1/4 lg:w-1/5 p-2 m-2 shadow-md rounded"
+        >
           <div>
             <p>{item.options.title}</p>
             <div>
@@ -23,7 +26,7 @@ const Main = () => {
           </div>
           <img
             src={`${import.meta.env.VITE_BASE_URL}${item.images[0]}`}
-            className="w-24 h-24"
+            className="w-32 h-32"
           />
         </div>
       ))}
