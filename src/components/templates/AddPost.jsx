@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { getCategory } from "src/services/admin";
 import { getCookie } from "src/utils/cookie";
 
@@ -44,8 +45,8 @@ const AddPost = () => {
           Authorization: `bearer ${token}`,
         },
       })
-      .then((res) => console.log(res))
-      .catch((error) => console.log(error));
+      .then((res) => toast.success("آگهی ثبت شد."))
+      .catch((error) => toast.error("ثبت آگهی با مشکل مواجه شد."));
   };
 
   return (
