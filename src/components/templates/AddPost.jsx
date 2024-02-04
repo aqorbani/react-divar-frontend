@@ -1,19 +1,58 @@
 import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import { useState } from "react";
 import { getCategory } from "src/services/admin";
+import { getCookie } from "src/utils/cookie";
 
 const AddPost = () => {
+  const [form, setForm] = useState({
+    title: "",
+    content: "",
+    category: "",
+    city: "",
+    amount: null,
+    images: null,
+  });
+
   const { data } = useQuery({
     queryKey: ["categories"],
     queryFn: getCategory,
   });
 
+  const changeHandler = (event) => {
+    const name = event.target.name;
+    if (name !== "images") {
+      setForm({ ...form, [name]: event.target.value });
+    } else {
+      setForm({ ...form, [name]: event.target.files[0] });
+    }
+  };
+
   const addHandler = (event) => {
     event.preventDefault();
-    console.log("send");
+
+    const formData = new FormData();
+    for (let i in form) {
+      formData.append(i, form[i]);
+    }
+
+    const token = getCookie("accessToken");
+    axios
+      .post(`${import.meta.env.VITE_BASE_URL}post/create`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `bearer ${token}`,
+        },
+      })
+      .then((res) => console.log(res))
+      .catch((error) => console.log(error));
   };
 
   return (
-    <form className="flex flex-col w-1/3 m-3 shadow-md p-4 rounded">
+    <form
+      className="flex flex-col w-1/3 m-3 shadow-md p-4 rounded"
+      onChange={changeHandler}
+    >
       <h3 className="w-1/2 text-2xl font-bold mb-3">افزودن آگهی</h3>
       {/* {data?.status === 201 && (
         <p className="p-2 text-green-900 bg-green-100 rounded">
