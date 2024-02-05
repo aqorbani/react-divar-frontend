@@ -3,7 +3,7 @@ import SideBar from "src/components/templates/SideBar";
 
 const HomePage = () => {
   return (
-    <div className="flex">
+    <div className="flex-col w-full md:flex md:flex-row">
       <SideBar />
       <Main />
     </div>

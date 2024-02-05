@@ -9,7 +9,7 @@ const SideBar = () => {
   });
   if (isLoading) return <Loader />;
   return (
-    <div className="shadow-md p-4 m2">
+    <div className="w-full md:w-1/4 lg:w-1/6 shadow-md p-4 m2">
       <h2>دسته بندی ها</h2>
       <ul className="p-2">
         {data?.data.map((item) => (

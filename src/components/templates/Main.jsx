@@ -11,11 +11,11 @@ const Main = () => {
   if (isLoading) return <Loader />;
   console.log(data);
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap w-full md:w-3/4 lg:w-5/6">
       {data.data.posts.map((item) => (
         <div
           key={item._id}
-          className="flex w-full md:w-1/4 lg:w-1/5 p-2 m-2 shadow-md rounded"
+          className="flex w-full md:w-2/5 lg:w-1/4 p-2 m-2 shadow-md rounded"
         >
           <div>
             <p>{item.options.title}</p>
