@@ -22,8 +22,8 @@ const MyPostList = () => {
             className="w-24 h-24"
           />
           <div>
-            <p>{item.options.title}</p>
-            <span>{item.options.content}</span>
+            <p>{item.options?.title}</p>
+            <span>{item.options?.content}</span>
           </div>
           <div>
             <p>{new Date(item.createdAt).toLocaleDateString("fa-IR")}</p>

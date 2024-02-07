@@ -45,8 +45,8 @@ const AddPost = () => {
           Authorization: `bearer ${token}`,
         },
       })
-      .then((res) => toast.success("آگهی ثبت شد."))
-      .catch((error) => toast.error("ثبت آگهی با مشکل مواجه شد."));
+      .then(() => toast.success("آگهی ثبت شد."))
+      .catch(() => toast.error("ثبت آگهی با مشکل مواجه شد."));
   };
 
   return (
