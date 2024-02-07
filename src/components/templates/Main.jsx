@@ -11,17 +11,17 @@ const Main = () => {
   if (isLoading) return <Loader />;
   console.log(data);
   return (
-    <div className="flex flex-wrap w-full md:w-3/4 lg:w-5/6">
-      {data.data.posts.map((item) => (
+    <div className="flex flex-wrap w-full justify-between">
+      {data?.data.posts.map((item) => (
         <div
           key={item._id}
-          className="flex w-full md:w-2/5 lg:w-1/4 p-2 m-2 shadow-md rounded"
+          className="flex justify-between w-full lg:w-1/2 xl:w-1/3 p-2 shadow-md rounded"
         >
           <div>
-            <p>{item.options.title}</p>
+            <p>{item.options?.title}</p>
             <div>
-              <p>{sp(item.amount)}تومان</p>
-              <span>{item.options.city}</span>
+              <p>{sp(item.amount)} تومان</p>
+              <span>{item.options?.city}</span>
             </div>
           </div>
           <img
